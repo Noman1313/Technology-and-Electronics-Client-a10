@@ -5,7 +5,10 @@ const HomeCard = ({ data }) => {
     return (
         <div>
             <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
-                <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-96 rounded-xl bg-clip-border">
+                <div data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="3000"
+                    className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-96 rounded-xl bg-clip-border">
                     <img
                         src={brand_image}
                         className="object-cover w-full h-full"
@@ -31,6 +34,6 @@ const HomeCard = ({ data }) => {
 
 export default HomeCard;
 
-HomeCard.propTypes={
+HomeCard.propTypes = {
     data: PropTypes.object
 }
