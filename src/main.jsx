@@ -10,6 +10,7 @@ import Home from './HomePage/Home';
 import Login from './Login/Login';
 import Register from './Register/Register';
 import AuthProvider from './routes/AuthProvider';
+import PrivateRoute from './routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/home",
-        element: <Home></Home>,
+        element: <PrivateRoute><Home></Home></PrivateRoute>,
         loader: () => fetch('/fakeData.json')
       },
       {
