@@ -1,11 +1,46 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../routes/AuthProvider";
 
 
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext)
+
+    const location = useLocation()
+
+    const navigate = useNavigate()
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email');
+        const password = form.get('password')
+
+        console.log(email,password);
+
+
+
+        if (password.length < 6) {
+            toast.error('password must be 6 letter')
+            return;
+        }
+
+        signIn(email, password)
+            .then(() => {
+                toast.success('Log in successful')
+                navigate(location?.state ? location.state : '/home')
+            })
+            .catch(() => {
+                toast.error('Email or password dose not match...please try again')
+            })
+    }
+
     return (
         <div className="flex justify-center mt-20">
             <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <form className="space-y-6" action="#">
+                <form onSubmit={handleLogin} className="space-y-6" action="#">
                     <h5 className="text-2xl font-medium text-gray-900 dark:text-white text-center">Sign in</h5>
                     <div>
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
@@ -26,7 +61,7 @@ const Login = () => {
                     </div>
                     <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
                     <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Not registered? <Link  className="text-blue-700 hover:underline dark:text-blue-500" to='/register'>Create account</Link>
+                        Not registered? <Link className="text-blue-700 hover:underline dark:text-blue-500" to='/register'>Create account</Link>
                     </div>
                 </form>
             </div>

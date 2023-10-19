@@ -1,12 +1,54 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../routes/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const Register = () => {
+
+    const { createUser,handleUpdateProfile } = useContext(AuthContext);
+    const navigate = useNavigate()
+
+    const handleRegister = e => {
+        e.preventDefault();
+
+        const form = new FormData(e.currentTarget)
+        const name = form.get('name');
+        const email = form.get('email');
+        const photo = form.get('photo');
+        const password = form.get('password');
+
+        // console.log(name,email,photo,password);
+
+        if (password.length < 6){
+            toast.error('must be 6 letters')
+            return
+        }
+        else if (/^(?!.*[A-Z])(?!.*[@$!%*?&])/.test(password)) {
+            toast.error('please give me valid password')
+            return;
+        }
+
+            //createuser
+            createUser(email, password)
+                .then(() => {
+                    handleUpdateProfile(name,photo)
+                    .then(()=>{
+                        toast.success('log in successful')
+                        navigate('/home')
+                    })
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+
+    }
+
     return (
         <div>
             <div className="flex justify-center mt-10">
                 <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-                    <form className="space-y-6" action="#">
+                    <form onSubmit={handleRegister} className="space-y-6" action="#">
                         <h5 className="text-2xl font-medium text-gray-900 dark:text-white text-center">Register To your Account</h5>
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
