@@ -11,12 +11,13 @@ import Login from './Login/Login';
 import Register from './Register/Register';
 import AuthProvider from './routes/AuthProvider';
 import PrivateRoute from './routes/PrivateRoute';
+import NotFound from './NotFound/NotFound';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    // errorElement: <ErrorPage />,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: "/home",
