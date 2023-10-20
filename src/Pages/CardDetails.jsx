@@ -1,25 +1,17 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Navbar from "../HomePage/Navbar";
-import { useEffect, useState } from "react";
 
 
 const CardDetails = () => {
 
     
 
-    const [card, setCard] = useState({})
-    const {photo, description} = card || {}
-
-    const { _id } = useParams()
-    const intId = parseInt(_id)
+    
 
     const cards = useLoaderData()
     console.log(cards);
 
-    useEffect(() => {
-        const findCard = cards?.find(card => card.id == intId)
-        setCard(findCard)
-    }, [intId, cards])
+    
 
     return (
         <div>
@@ -27,7 +19,7 @@ const CardDetails = () => {
             <div className=" flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
                 <div className=" h-56 mx-4 mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                     <img
-                        src={photo}
+                        src={cards.photo}
                         alt="img-blur-shadow"
                         
                     />
@@ -37,7 +29,7 @@ const CardDetails = () => {
                         UI/UX Review Check
                     </h5>
                     <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                        {description}
+                        {cards.description}
                     </p>
                 </div>
                 <div className="p-6 pt-0">

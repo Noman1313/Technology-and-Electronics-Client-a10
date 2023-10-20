@@ -15,6 +15,7 @@ import NotFound from './NotFound/NotFound';
 import AddProduct from './Pages/AddProduct';
 import Products from './Pages/Products';
 import CardDetails from './Pages/CardDetails';
+import UpdateProduct from './Pages/UpdateProduct';
 
 const router = createBrowserRouter([
   {
@@ -46,8 +47,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/cardDetails/:_id',
-        element: <CardDetails></CardDetails>,
-        loader: ()=>fetch('http://localhost:5000/products')
+        element: <PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
+        loader: ({params})=>fetch(`http://localhost:5000/products/${params._id}`)
+      },
+      {
+        path:'/updateProduct/:id',
+        element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
+        loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
       }
     ],
   },
