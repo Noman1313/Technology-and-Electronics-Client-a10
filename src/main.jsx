@@ -12,6 +12,7 @@ import Register from './Register/Register';
 import AuthProvider from './routes/AuthProvider';
 import PrivateRoute from './routes/PrivateRoute';
 import NotFound from './NotFound/NotFound';
+import AddProduct from './Pages/AddProduct';
 
 const router = createBrowserRouter([
   {
@@ -20,17 +21,21 @@ const router = createBrowserRouter([
     errorElement: <NotFound></NotFound>,
     children: [
       {
-        path: "/home",
-        element: <PrivateRoute><Home></Home></PrivateRoute>,
-        loader: () => fetch('/fakeData.json')
-      },
-      {
         path: '/',
         element: <Login></Login>
       },
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: "/home",
+        element: <PrivateRoute><Home></Home></PrivateRoute>,
+        loader: () => fetch('/fakeData.json')
+      },
+      {
+        path: '/addProduct',
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       }
     ],
   },
