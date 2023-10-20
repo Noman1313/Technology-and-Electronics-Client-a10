@@ -13,6 +13,8 @@ import AuthProvider from './routes/AuthProvider';
 import PrivateRoute from './routes/PrivateRoute';
 import NotFound from './NotFound/NotFound';
 import AddProduct from './Pages/AddProduct';
+import Products from './Pages/Products';
+import CardDetails from './Pages/CardDetails';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,16 @@ const router = createBrowserRouter([
       {
         path: '/addProduct',
         element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+      },
+      {
+        path: '/products',
+        element: <PrivateRoute><Products></Products></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/products')
+      },
+      {
+        path: '/cardDetails/:_id',
+        element: <CardDetails></CardDetails>,
+        loader: ()=>fetch('http://localhost:5000/products')
       }
     ],
   },
