@@ -6,7 +6,7 @@ import AddedCard from "./AddedCard";
 const Products = () => {
 
     const products = useLoaderData()
-    console.log(products);
+    
 
     return (
         <div>

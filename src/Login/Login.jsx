@@ -19,10 +19,6 @@ const Login = () => {
         const email = form.get('email');
         const password = form.get('password')
 
-        console.log(email,password);
-
-
-
         if (password.length < 6) {
             toast.error('password must be 6 letter')
             return;
@@ -32,6 +28,7 @@ const Login = () => {
             .then(() => {
                 toast.success('Log in successful')
                 navigate(location?.state ? location.state : '/home')
+                
             })
             .catch(() => {
                 toast.error('Email or password dose not match...please try again')

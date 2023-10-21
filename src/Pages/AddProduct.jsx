@@ -16,10 +16,10 @@ const AddProduct = () => {
         const photo=form.photo.value
 
         const newProduct = {name,brandName,type,price,description,photo}
-        console.log(newProduct);
+        
 
         //send date to the server
-        fetch('http://localhost:5000/products', {
+        fetch('https://technology-and-electronics-server-kohl.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -28,7 +28,7 @@ const AddProduct = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
+            
             if(data.insertedId){
                 Swal.fire({
                     title: 'success!',

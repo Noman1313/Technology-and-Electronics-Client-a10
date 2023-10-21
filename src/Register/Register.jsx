@@ -19,7 +19,7 @@ const Register = () => {
         const photo = form.get('photo');
         const password = form.get('password');
 
-        // console.log(name,email,photo,password);
+        
 
         if (password.length < 6){
             toast.error('must be 6 letters')

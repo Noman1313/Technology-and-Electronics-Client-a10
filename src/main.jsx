@@ -43,17 +43,17 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: <PrivateRoute><Products></Products></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/products')
+        loader: () => fetch('https://technology-and-electronics-server-kohl.vercel.app/products')
       },
       {
         path: '/cardDetails/:_id',
         element: <PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/products/${params._id}`)
+        loader: ({ params }) => fetch(`https://technology-and-electronics-server-kohl.vercel.app/products/${params._id}`)
       },
       {
-        path:'/updateProduct/:id',
-        element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+        path: '/updateProduct/:id',
+        element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://technology-and-electronics-server-kohl.vercel.app/products/${params.id}`)
       }
     ],
   },

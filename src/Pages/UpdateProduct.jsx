@@ -5,7 +5,7 @@ import Navbar from "../HomePage/Navbar";
 
 const UpdateProduct = () => {
     const product = useLoaderData()
-    console.log(product);
+    
     const { name, brandName, price, description, photo, _id, type } = product;
 
     const handleUpdateProduct = event => {
@@ -20,10 +20,10 @@ const UpdateProduct = () => {
         const photo = form.photo.value
 
         const updatedProduct = { name, brandName, type, price, description, photo }
-        console.log(updatedProduct);
+        
 
         //send date to the server
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`https://technology-and-electronics-server-kohl.vercel.app/products/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -32,7 +32,7 @@ const UpdateProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'success!',

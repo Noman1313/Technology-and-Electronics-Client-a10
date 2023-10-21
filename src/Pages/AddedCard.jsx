@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
 const AddedCard = ({ product }) => {
@@ -7,9 +8,13 @@ const AddedCard = ({ product }) => {
     return (
         <div>
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img className="p-8 rounded-t-lg" src={photo} alt="product image" />
-                </a>
+                <div className=" h-56 mx-4 mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
+                    <img
+                        src={photo}
+                        alt="img-blur-shadow"
+
+                    />
+                </div>
                 <div className="px-5 pb-5">
                     <a href="#">
                         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{name}, {brandName}</h5>
@@ -52,3 +57,8 @@ const AddedCard = ({ product }) => {
 };
 
 export default AddedCard;
+
+
+AddedCard.propTypes={
+    product: PropTypes.object
+}

@@ -6,7 +6,7 @@ import HomeCard from "./HomeCard";
 
 const Home = () => {
     const loadedData = useLoaderData();
-    // console.log(loadedData);
+    
     return (
         <div>
             <Navbar></Navbar>

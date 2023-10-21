@@ -2,21 +2,21 @@
     {
       "id": 1,
       "brand_image": "https://i.ibb.co/NVPfkkn/i-phone.jpg",
-      "brand_name": "I-phone 13 max pro",
+      "brand_name": "I-phone",
       "price": 1099,
       "description": "The iPhone 13 Pro Max is a top-tier smartphone from Apple, featuring a stunning 6.7-inch Super Retina XDR display, A15 Bionic chip, and impressive camera system with ProRAW and ProRes video capabilities. It boasts 5G connectivity, and a sleek design  Shield front cover. This powerhouse device offers exceptional performance and photography capabilities."
     },
     {
       "id": 2,
       "brand_image": "https://i.ibb.co/0ZmkJm4/brooke-cagle-Ftx92-UKO3-Xg-unsplash.jpg",
-      "brand_name": "Samsung laptop",
+      "brand_name": "Samsung",
       "price": 2995,
       "description": "Samsung laptops offer a blend of style and performance. With sleek designs, vivid displays, and powerful processors, they cater to various needs, from productivity to gaming. These laptops feature cutting-edge technology, ample storage, and robust battery life. Whether for work or entertainment, Samsung laptops deliver a satisfying user experience."
     },
     {
       "id": 3,
       "brand_image": "https://i.ibb.co/QJn9Ytj/triyansh-gill-t-Mj-Yo-JY9r-SY-unsplash.jpg",
-      "brand_name": "Google phone",
+      "brand_name": "Google ",
       "price": 799,
       "description": "The Google Phone is a smartphone that features the latest Android operating system, high-resolution camera for stunning photos and videos, a vibrant OLED display for crisp visuals, and seamless integration with Google services. It offers a sleek design, powerful performance, and regular software updates for a premium mobile experience."
     },
@@ -30,14 +30,14 @@
     {
       "id": 5,
       "brand_image": "https://i.ibb.co/FBGsNLQ/sony.webp",
-      "brand_name": "Sony phone",
+      "brand_name": "Sony ",
       "price": 599,
       "description": "The Sony phone features a sleek design, vibrant OLED display, powerful Snapdragon processor, and impressive camera system for stunning photos and 4K video. Its long-lasting battery, 5G connectivity, and water-resistant build make it a top-tier choice for modern users. Enjoy a seamless experience with the latest Android OS and Sony's signature audio enhancements."
     },
     {
       "id": 6,
       "brand_image": "https://i.ibb.co/RQy95Dd/dell-u-WFFw7le-QNI-unsplash.jpg",
-      "brand_name": "Dell leptop",
+      "brand_name": "Dell ",
       "price": 1995,
       "description": "The Dell laptop is a versatile, reliable computing solution. It boasts a sleek design, vibrant display, and robust performance, powered by cutting-edge processors and ample RAM. With a range of configurations, it caters to diverse needs, from productivity to gaming. Its durable build, long-lasting battery, and responsive keyboard make it a top choice for on-the-go users."
     }
